@@ -4,8 +4,8 @@
 
 /**
  * add_node - adds new node at the beginning of list_t
- * @head - double pointer to list_t
- * @str - string to add node
+ * @head: double pointer to list_t
+ * @str: string to add node
  *
  * Return: address of new element, or NULL if it failed
  */
