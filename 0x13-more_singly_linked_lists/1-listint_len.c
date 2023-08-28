@@ -1,3 +1,4 @@
+#include <stdio>
 #include <stdlib.h>
 #include "lists.h"
 
