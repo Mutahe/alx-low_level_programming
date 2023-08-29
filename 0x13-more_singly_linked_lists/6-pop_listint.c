@@ -15,12 +15,11 @@ int pop_listint(listint_t **head)
 
 	if (!head)
 	{
-		return(0);
+		return (0);
 	}
 	data = (*head)->n;
-	*ptr = (*head)->next;
+	*ptr = *head->next;
 
 	free(*head);
-	
 	return (data);
 }
