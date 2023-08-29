@@ -6,14 +6,14 @@
  * free_listint2 - frees a listint_t list
  * @head: double pointer to listint_t
  *
- * Return: next node
+ * Return: Void
  */
 void free_listint2(listint_t **head)
 {
         while (head != NULL)
         {
-                listint2 *temp = head;
+                listint_t *current = head;
 		head = head->next;
-		free_listint2(temp);
+		free_listint2(current);
         }
 }
