@@ -7,23 +7,21 @@
  */
 void print_binary(unsigned long int n)
 {
-	int binary[64];
-	int y = 0;
+	int i, num = 0;
+	unsigned long int present;
 
-	if (n == 0)
+	for (i = 64; i >= 0; i--)
 	{
-		printf("0");
-		return;
-	}
-	while (n > 0)
-	{
-		binary[y] = n % 2;
-		y++;
-	}
+		present = n >> i;
 
-	for (int i = y - 1; i>=0; i--)
-	{
-		printf("%d", binary [i]);
+		if (present & 1)
+		{
+			putchar('1');
+			num++;
+		}
+		else if (num)
+			putchar('0');
 	}
-	return;
+	if (!num)
+		putchar('0');
 }
