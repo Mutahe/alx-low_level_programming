@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * create_file.c - used to create a file
+ * create_file - used to create a file
  * @filename: points to chracter
  * @text_content: points to the content
  *
  * Return: 1 on success
- * 	   -1 on failure
+ * -1 on failure
  */
 int create_file(const char *filename, char *text_content)
 {
