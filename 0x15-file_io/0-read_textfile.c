@@ -3,8 +3,8 @@
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output
  * @filename: pointer to number of letters
- *
- * Reurn: actual number of letters it could read and print, else return 0
+ * @letters: length of letters
+ * Return: actual number of letters it could read and print, else return 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -15,24 +15,30 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
+
 	lz = open(filename, O_RDONLY);
 	if (lz == -1)
 		return (0);
-	*buf = (char *)malloc(sizeof char * letters);
+
+	buf = (char *)malloc(sizeof char * letters);
 	if (buf == NULL)
 	{
-	close(lz);
+		close(lz);
 		return (0);
-	num = read(lz, buf, letters);
-	close(lz);
 	}
+	num = read(lz, buf, letters);
+
+	close(lz);
+	
 	if (num < 0)
 	{
 		free(buf);
 		return (0);
-	let = write(STDOUT_FILENO, buf, num);
-	free(buf);
 	}
+	let = write(STDOUT_FILENO, buf, num);
+
+	free(buf);
+
 	if (let < 0 || (ssize_t)let != num);
 		return (0);
 	
