@@ -12,7 +12,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int lz;
-	
+
 	if (filename == NULL)
 
 	lz = open(filename, O_WRONLY | O_APPEND);
@@ -23,6 +23,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 	{
 		ssize_t written = write(lz, text_content, strlen(text_content));
+		
 		if (written == -1)
 		{
 			close(lz);
@@ -30,6 +31,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		}
 	}
 	close(lz);
+
 	return (1);
 
 }
