@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * binary_to_uint - converts binary number to unsigned int
@@ -12,16 +12,14 @@ unsigned int binary_to_uint(const char *b)
                 return (0);
 
         unsigned int end = 0;
+        int j;
 
-        while (*b != '0')
+        for (j = 0; b[j]; j++)
         {
-                if (b != 'o' && *b != '1')
-		{
-			return (0);
-		}
+                if (b[j] < '0' || b[j] > '1')
+                        return (0);
 
-		end = (end << 1) | (*b - '0');
-		b++;
-	}
-	return (end);
+                end = 2 * end + (b[j] - '0');
+        }
+        return (end);
 }
