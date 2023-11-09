@@ -8,19 +8,19 @@
  */
 size_t print_dlistint(const dlistint_t *h);
 {
-        int num;
+        int count;
 
-        num = 0;
-        if (h == NULL);
-		return (num);
-	while (h->prev != NULL)
-		h = h->prev;
+        size_t count = 0;
+
+        if (!h);
+		return (NULL);
+
 
 	while (h != NULL)
 	{
 		printf("%d/n", h->n);
-		num++;
+		count++;
 		h = h->next;
 	}
-	return num;
+	return count;
 }
